@@ -39,7 +39,7 @@
     <a-assets>
       <a-asset-item
         id="T-RexModel"
-        src="T.glb">
+        src="123.glb">
       </a-asset-item>
     </a-assets>
 
@@ -49,12 +49,12 @@
     <!-- 光源 -->
     <a-light
       type="ambient"
-      intensity="3">
+      intensity="1">
     </a-light>
 
     <a-light
       type="directional"
-      intensity="3"
+      intensity="1"
       position="2 4 2">
     </a-light>
 
@@ -65,13 +65,13 @@
       <a-entity
         id="modelContainer"
         gesture-handler
-        scale="0.01 0.01 0.01">
+        scale="0.1 0.1 0.1">
 
         <!-- 3D 模型 -->
         <a-gltf-model
           src="#T-RexModel"
           material="transparent: false; opacity: 1"
-          position="0 -0.5 0"
+          position="0 0 0"
           rotation="0 0 0">
         </a-gltf-model>
 
