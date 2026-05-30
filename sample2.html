@@ -49,12 +49,12 @@
     <!-- 光源 -->
     <a-light
       type="ambient"
-      intensity="3">
+      intensity="5">
     </a-light>
 
     <a-light
       type="directional"
-      intensity="3"
+      intensity="5"
       position="2 4 2">
     </a-light>
 
@@ -284,33 +284,21 @@
 
       tick: function () {
 
-        if (!this.isDragging) {
+  if (!this.isDragging) {
 
-          this.el.object3D.rotation.y +=
-            this.rotationVelocity;
+    this.el.object3D.rotation.y +=
+      this.rotationVelocity;
 
-          // 阻尼
-          this.rotationVelocity *=
-            this.damping;
+    // 阻尼
+    this.rotationVelocity *=
+      this.damping;
 
-          // 小速度停止
-          if (
-            Math.abs(this.rotationVelocity)
-            < 0.00001
-          ) {
-            this.rotationVelocity = 0;
-          }
-
-          // 限制角度
-          const limit =
-            THREE.MathUtils.degToRad(45);
-
-          this.el.object3D.rotation.y =
-            Math.max(
-              -limit,
-              Math.min(
-                limit,
-                this.el.object3D.rotation.y
+    // 小速度停止
+    if (
+      Math.abs(this.rotationVelocity)
+      < 0.00001
+    ) {
+      this.rotationVelocity = 0;
               )
             );
         }
