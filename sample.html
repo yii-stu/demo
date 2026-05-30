@@ -49,12 +49,12 @@
     <!-- 光源 -->
     <a-light
       type="ambient"
-      intensity="1">
+      intensity="3">
     </a-light>
 
     <a-light
       type="directional"
-      intensity="1"
+      intensity="3"
       position="2 4 2">
     </a-light>
 
@@ -331,16 +331,19 @@ document.querySelector('a-gltf-model')
   mesh.traverse((node) => {
 
     if (node.isMesh && node.material) {
+      
+node.material.transparent = false;
 
-      node.material.transparent = false;
+node.material.opacity = 1;
 
-      node.material.opacity = 1;
+node.material.alphaTest = 0;
 
-      node.material.alphaTest = 0;
+node.material.depthWrite = true;
 
-      node.material.depthWrite = true;
+node.material.side = THREE.DoubleSide;
 
-      node.material.needsUpdate = true;
+node.material.needsUpdate = true;
+
     }
   });
 });
