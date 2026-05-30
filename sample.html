@@ -49,12 +49,12 @@
     <!-- 光源 -->
     <a-light
       type="ambient"
-      intensity="0.6">
+      intensity="1">
     </a-light>
 
     <a-light
       type="directional"
-      intensity="0.6"
+      intensity="1"
       position="2 4 2">
     </a-light>
 
@@ -71,7 +71,7 @@
         <a-gltf-model
           src="#T-RexModel"
           material="transparent: false; opacity: 1"
-          position="0 0 -1"
+          position="0 -0.5 0"
           rotation="0 0 0">
         </a-gltf-model>
 
@@ -319,6 +319,33 @@
     });
 
   </script>
+  
+<script>
 
+document.querySelector('a-gltf-model')
+.addEventListener('model-loaded', function () {
+
+  const mesh =
+    this.getObject3D('mesh');
+
+  mesh.traverse((node) => {
+
+    if (node.isMesh && node.material) {
+
+      node.material.transparent = false;
+
+      node.material.opacity = 1;
+
+      node.material.alphaTest = 0;
+
+      node.material.depthWrite = true;
+
+      node.material.needsUpdate = true;
+    }
+  });
+});
+
+</script>
+  
 </body>
 </html>
