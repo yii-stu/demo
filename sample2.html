@@ -115,7 +115,7 @@
         // =====================
 
         this.rotationVelocity = 0;
-        this.damping = 0.95;
+        this.damping = 0.9;
 
         // =====================
         // 雙擊
@@ -209,7 +209,7 @@
 
             // 慣性速度
             this.rotationVelocity =
-              deltaX * 0.002;
+              deltaX * 0.001;
 
             // 即時旋轉
             el.object3D.rotation.y +=
@@ -304,7 +304,7 @@
 
           // 限制角度
           const limit =
-            THREE.MathUtils.degToRad(270);
+            THREE.MathUtils.degToRad(360);
 
           this.el.object3D.rotation.y =
             Math.max(
